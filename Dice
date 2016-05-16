@@ -1,0 +1,41 @@
+package practice1;
+
+public class Dice {
+
+private int numRolls;
+private int numDice;
+
+public Dice(){}
+
+public Dice(int dice, int rolls){
+	
+	numDice = dice;
+	numRolls = rolls;
+}
+
+
+public void setRolls(int rolls){
+	numRolls = rolls;
+}
+
+public void setDice(int dice){
+	numDice = dice;
+}
+
+public int getRolls(){
+	return numRolls;
+}
+
+public int getDice(){
+	return numDice;
+}
+
+public static int Throw(int dice){
+	int diceNum = (dice * ((1 + (int)(Math.random()*6))));
+	return diceNum;
+}
+
+public String toString(){
+	return String.format("You want to roll %s dice and throw them %s times.", numDice, numRolls);
+}
+}
