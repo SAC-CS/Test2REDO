@@ -1,0 +1,69 @@
+package practice1;
+import java.util.Scanner;
+
+public class Test2 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		Dice diceObject = new Dice();
+		int choice;
+		
+		
+		do{
+		Automobile car = new Automobile();
+		Automobile sportCar = new Automobile(2007, "Audi", "A4", "Blue", "Cookie Monster", 6);
+		Automobile truck = new Automobile(2016, "Chevy", "Suburban", "Black", "Big Kahuna", 3);
+		Automobile van = new Automobile(2005, "Dodge", "Caravan", "Silver", "The Family Van",4);
+
+		System.out.println(sportCar);
+		System.out.println(truck);
+		System.out.println(van);
+
+		
+		System.out.println("Now let us know what car you drive: ");
+		
+		System.out.print("What year is your car: ");
+		car.setTheYear(input.nextInt());
+		
+		System.out.print("What make is your car: ");
+		input.nextLine();
+		car.setTheMake(input.nextLine());
+		
+		System.out.print("What is the model of your car: ");
+		car.setTheModel(input.nextLine());
+
+		System.out.print("What is the name of your car: ");
+		car.setTheName(input.nextLine());
+		
+		System.out.print("What is the color of the car: ");
+		car.setTheColor(input.nextLine());
+		
+				
+		System.out.print("How many gears does your transmission have: ");
+		car.setTheNumOfGears(input.nextInt());
+		
+		System.out.printf("This is the car you \"claim\" to own %s.\n",car);
+		
+		System.out.print("\nEnter the number of dices to determine Operating Cycles: "); 
+		int oCycle = Dice.Throw(input.nextInt());
+		for (int i=1; i <= oCycle; i++)
+		{
+			System.out.println("Operating Cycles = " + i);
+			van.drive(i);
+			truck.drive(i);			
+			car.drive(i);
+			sportCar.drive(i);
+			
+						
+			System.out.println(sportCar);
+			System.out.println(van);
+			System.out.println(truck);
+			System.out.println(car);
+		}
+		
+		System.out.print("Want to play again? (Yes=1/No=0");
+		choice = input.nextInt();
+		} while(choice == 1);
+	}
+
+}
